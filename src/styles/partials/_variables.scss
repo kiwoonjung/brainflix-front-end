@@ -1,19 +1,16 @@
-@use 'variables' as *;
+// screen sizes
+$mobile-breakpoint: 320px;
+$tablet-breakpoint: 768px;
+$desktop-breakpoint: 1280px;
 
-@mixin mobile {
-  @media screen and (min-width: $mobile-breakpoint) {
-    @content;
-  }
-}
+// primary color
+$brainflix-black: #323232;
+$brainflix-blue: #0095FF;
+$silver: #AFAFAF;
+$white: #FFFFFF;
 
-@mixin tablet {
-  @media screen and (min-width: $tablet-breakpoint) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media screen and (min-width: $desktop-breakpoint) {
-    @content;
-  }
-}
+// secondary color
+$brainflix-darkblack: #000000;
+$brainflix-darkblue: #0065AD;
+$mercury: #E1E1E1;
+$alabaster: #FAFAFA;
