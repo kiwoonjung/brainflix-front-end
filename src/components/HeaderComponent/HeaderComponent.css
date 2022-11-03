@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.search-icon {
+  position: relative;
+  background: url("../../assets/icons/search.svg");
+  background-repeat: no-repeat;
+  padding-left: 1.5rem;
+}
+
+.user-icon {
+  background-size: cover;
+  width: 2.46rem;
+  height: 2.25rem;
+  border-radius: 50%;
+}
+
+.search__container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.upload_button {
+  color: white;
+  height: 2.5rem;
+  background-color: #0095FF;
+  border-radius: 0.25rem;
+}/*# sourceMappingURL=HeaderComponent.css.map */
