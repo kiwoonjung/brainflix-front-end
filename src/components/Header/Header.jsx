@@ -12,6 +12,7 @@ function HeaderComponent() {
         <form className="search__bar-container">
           <input className="search__bar" type="text" placeholder="Search" />
         </form>
+        <button className="upload-button-tablet">UPLOAD</button>
         <div className="search__user-container">
           <div className="search__user"></div>
         </div>

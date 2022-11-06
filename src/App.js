@@ -26,23 +26,25 @@ function App() {
   return (
     <div>
       <Header />
-      <VideoInfo video={currentVideo} getTimeStamp={dateFormat} />
-      <h5 className="comments">{currentVideo.comments.length} Comments</h5>
-      <CommentForm />
-      {currentVideo.comments.map((data, id) => (
-        <div className="comments-gap">
-          <Comment
-            getTimeStamp={dateFormat}
-            id={id}
-            key={id}
-            name={data.name}
-            timestamp={data.timestamp}
-            post={data.comment}
-          />
+      <div className="desktop">
+        <VideoInfo video={currentVideo} getTimeStamp={dateFormat} />
+        <h5 className="comments">{currentVideo.comments.length} Comments</h5>
+        <CommentForm />
+        {currentVideo.comments.map((data, id) => (
+          <div className="comments-gap">
+            <Comment
+              getTimeStamp={dateFormat}
+              id={id}
+              key={id}
+              name={data.name}
+              timestamp={data.timestamp}
+              post={data.comment}
+            />
+          </div>
+        ))}
+        <div className="video-gap">
+          <h5 className="next-video">NEXT VIDEO</h5>
         </div>
-      ))}
-      <div className="video-gap">
-        <h5 className="next-video">NEXT VIDEO</h5>
         <VideoList
           videoData={videoData.filter(
             (video) => video.title !== currentVideo.title

@@ -1,5 +1,6 @@
 @use '../../styles/partials/global.scss' as *;
 @use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 
 .post{
     width: 100%;
@@ -7,6 +8,10 @@
     padding-top: $mobile-padding-after;
     border-top: .0625rem solid $mercury;
     margin-bottom: -0.6rem;
+
+    @include tablet {
+        padding-top: $tablet-padding-after
+    }
 
 
     &__user-default {
@@ -34,5 +39,9 @@
     &__comment {
         padding-left: 3.25rem;
         padding-bottom: $mobile-padding-after;
+
+        @include tablet {
+            padding-bottom: $tablet-padding-after;
+        }
     }
 }

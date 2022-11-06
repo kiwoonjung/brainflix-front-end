@@ -1,26 +1,55 @@
 @use '../../styles/partials/global.scss' as *;
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
 
 
 .video-info {
 
-
+    &__background{
+        background-color: black;
+        padding-right: $tablet-padding-between;
+        padding-left:  $tablet-padding-between;
+    }
 
     &__title-container {
         padding-right: $mobile-padding-between;
         padding-bottom: $mobile-padding-before;
         padding-left: $mobile-padding-between;
+
+        @include tablet {
+            padding-right: $tablet-padding-between;
+            padding-left: $tablet-padding-between;
+            padding-bottom : $tablet-padding-before;
+        }
+        
     }
 
     &__title {
         padding-top: $mobile-padding-before;
         padding-bottom: $mobile-padding-after;
         border-bottom: .0625rem solid $mercury;
+
+        @include tablet {
+            padding-bottom: 0rem;
+            border-bottom: none;
+        }
     }
 
     &__timestamp {
         color: $silver;
+    }
+
+    &__channel-tablet {
+        @include tablet {
+            display: flex;
+        }
+    }
+
+    &__view-tablet {
+        @include tablet {
+            display: flex;
+        }
     }
 
     &__channel-container {
@@ -30,15 +59,27 @@
         padding-top: $mobile-padding-after;
         padding-bottom: $mobile-padding-after;
         border-bottom: .0625rem solid $mercury;
+
+        @include tablet {
+            justify-content: space-between;
+            padding-bottom: 0rem;
+        }
     }
 
     &__channel {
         padding-bottom: 1rem;
+        @include tablet {
+            padding-right: 2rem;
+        }
     }
 
     &__icon {
         display: flex;
         padding-right: 1rem;
+
+        @include tablet {
+            padding-right: 0.5rem;
+        }
     }
 
     &__view {
@@ -50,9 +91,17 @@
     &__like {
         display: flex;
         color: $silver;
+
+        @include tablet {
+            padding-left: 2rem;
+        }
     }
 
     &__description {
         padding-top: $mobile-padding-after;
+
+        @include tablet {
+            padding-top: $tablet-padding-after;
+        }
     }
 }

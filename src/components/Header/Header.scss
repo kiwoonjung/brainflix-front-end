@@ -1,4 +1,5 @@
 @use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 
 ::placeholder {
     color: #000000;
@@ -11,11 +12,23 @@
     padding-right: $mobile-padding-between;
     padding-bottom: $mobile-padding-between;
     padding-left: $mobile-padding-between;
+
+    @include tablet {
+        display: flex;
+        align-items: center;
+        padding-right: $tablet-padding-between;
+        padding-left: $tablet-padding-between;
+    }
 }
 
 .logo {
     display: flex;
     justify-content: center;
+
+    @include tablet {
+        width: 120px;
+        height: 25px;
+    }
 }
 
 .search {
@@ -33,10 +46,20 @@
         background-image: url("../../assets/icons/search.svg");
         background-repeat: no-repeat;
         background-position: .625rem;
+        background-color: $alabaster;
         padding-left: 2.5rem;
         border-radius: .3125rem;
         border-color: $mercury;
         border-style: solid;
+
+        @include tablet {
+            width: 72%;
+        }
+    }
+
+    &__bar-container {
+        display: flex;
+        justify-content: flex-end;
     }
 
     &__user-container {
@@ -61,7 +84,7 @@
     font-weight: 700;
     width: 100%;
     color: white;
-    height: 2.5rem;
+    height: 2.25rem;
     background-color: $brainflix-blue;
     background-image: url("../../assets/icons/upload.svg");
     background-repeat: no-repeat;
@@ -69,6 +92,31 @@
     border-color: $brainflix-blue;
     border-radius: .25rem;
     border-style: solid;
+
+    @include tablet {
+        display: none;
+    }
+}
+
+.upload-button-tablet {
+    display: none;
+    @include tablet {
+        display: block;
+        font-family: 'Avenir Next';
+        font-weight: 700;
+        width: 47%;
+        color: white;
+        height: 2.25rem;
+        background-color: $brainflix-blue;
+        background-image: url("../../assets/icons/upload.svg");
+        background-repeat: no-repeat;
+        background-position: .3125rem;
+        border-color: $brainflix-blue;
+        border-radius: .25rem;
+        border-style: solid;
+        margin-left: 1rem;
+    }
+
 }
 
 .upload-button:hover {

@@ -4,20 +4,38 @@
 @use './styles/partials/fonts' as *;
 @use './styles/partials/mixins' as *;
 
+.padding {
+    padding-right: 3rem;
+}
 
 .comments {
     padding-left: 1rem;
+
+    @include tablet {
+        padding-left :1.5rem;
+    }
 }
 
 .comments-gap {
     padding-left: 1rem;
     padding-right: 1rem;
+
+    @include tablet {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
 }
 
 .video-gap {
     padding-left: 1rem;
     padding-right: 1rem;
     padding-bottom: 1rem;
+
+    @include tablet {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
 }
 
 .next-video {
@@ -25,4 +43,8 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
     border-top: .0625rem solid #E1E1E1;
+}
+
+.desktop {
+    display: flex;
 }

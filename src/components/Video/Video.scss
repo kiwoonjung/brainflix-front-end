@@ -1,12 +1,17 @@
 @use '../../styles/partials/global.scss' as *;
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
 
 .video {
     width: 100%;
     &__main-container {
         display: flex;
         padding-bottom: 0.4rem;
+
+        @include tablet {
+            padding-bottom: 1rem;
+        }
     }
 
     &__img {
@@ -18,8 +23,13 @@
     }
 
     &__text-container {
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        @include tablet {
+            width: 22%;
+        }
     }
     }
