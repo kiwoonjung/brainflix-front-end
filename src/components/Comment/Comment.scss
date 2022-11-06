@@ -1,0 +1,38 @@
+@use '../../styles/partials/global.scss' as *;
+@use '../../styles/partials/variables' as *;
+
+.post{
+    width: 100%;
+    display: flex;
+    padding-top: $mobile-padding-after;
+    border-top: .0625rem solid $mercury;
+    margin-bottom: -0.6rem;
+
+
+    &__user-default {
+        background: $mercury;
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 50%;
+    }
+
+    &__user-container {
+        padding-right: $mobile-padding-between;
+    }
+
+    &__name-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    &__timestamp {
+        color: $silver;
+    }
+
+    &__comment {
+        padding-left: 3.25rem;
+        padding-bottom: $mobile-padding-after;
+    }
+}

@@ -1,0 +1,77 @@
+@use '../../styles/partials/variables' as *;
+
+::placeholder {
+    color: #000000;
+    font-family: 'Avenir Next';
+    font-weight: 400;
+}
+
+.header {
+    padding-top: $mobile-padding-between;
+    padding-right: $mobile-padding-between;
+    padding-bottom: $mobile-padding-between;
+    padding-left: $mobile-padding-between;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+.search {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    padding-top: $mobile-padding-after;
+    padding-bottom: $mobile-padding-after;
+
+    &__bar {
+        font-family: 'Avenir Next';
+        font-weight: 400;
+        height: 2.25rem;
+        width: 100%;
+        background-image: url("../../assets/icons/search.svg");
+        background-repeat: no-repeat;
+        background-position: .625rem;
+        padding-left: 2.5rem;
+        border-radius: .3125rem;
+        border-color: $mercury;
+        border-style: solid;
+    }
+
+    &__user-container {
+        padding-left: $mobile-padding-between;
+    }
+
+    &__user {
+        background-image: url("../../assets/images/Mohan-muruge.jpg");
+        background-size: cover;
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 50%;
+    }
+
+    &__bar-container{
+        width: 100%;
+    }
+}
+
+.upload-button {
+    font-family: 'Avenir Next';
+    font-weight: 700;
+    width: 100%;
+    color: white;
+    height: 2.5rem;
+    background-color: $brainflix-blue;
+    background-image: url("../../assets/icons/upload.svg");
+    background-repeat: no-repeat;
+    background-position: .3125rem;
+    border-color: $brainflix-blue;
+    border-radius: .25rem;
+    border-style: solid;
+}
+
+.upload-button:hover {
+    background-color: $brainflix-darkblue;
+    border-color: $brainflix-darkblue;
+}

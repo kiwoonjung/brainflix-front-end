@@ -1,0 +1,58 @@
+@use '../../styles/partials/global.scss' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/fonts' as *;
+
+
+.video-info {
+
+
+
+    &__title-container {
+        padding-right: $mobile-padding-between;
+        padding-bottom: $mobile-padding-before;
+        padding-left: $mobile-padding-between;
+    }
+
+    &__title {
+        padding-top: $mobile-padding-before;
+        padding-bottom: $mobile-padding-after;
+        border-bottom: .0625rem solid $mercury;
+    }
+
+    &__timestamp {
+        color: $silver;
+    }
+
+    &__channel-container {
+        width: 100%;
+        display: flex;
+        gap: 25%;
+        padding-top: $mobile-padding-after;
+        padding-bottom: $mobile-padding-after;
+        border-bottom: .0625rem solid $mercury;
+    }
+
+    &__channel {
+        padding-bottom: 1rem;
+    }
+
+    &__icon {
+        display: flex;
+        padding-right: 1rem;
+    }
+
+    &__view {
+        display: flex;
+        padding-bottom: 1rem;
+        color: $silver;
+    }
+
+    &__like {
+        display: flex;
+        color: $silver;
+    }
+
+    &__description {
+        padding-top: $mobile-padding-after;
+    }
+}

@@ -1,0 +1,64 @@
+@use '../../styles/partials/variables' as *;
+
+::placeholder {
+    color: #000000;
+    font-family: 'Avenir Next';
+    font-weight: 400;
+}
+
+.comment {
+    padding-top: $mobile-padding-before;
+    padding-right: $mobile-padding-between;
+    padding-bottom: $mobile-padding-between;
+    padding-left: $mobile-padding-between;
+
+    &__container {
+        display: flex;
+    }
+
+    &__user-container {
+        padding-right: $mobile-padding-between;
+    }
+
+    &__user {
+        background-image: url("../../assets/images/Mohan-muruge.jpg");
+        background-size: cover;
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 50%;
+    }
+
+    &__label {
+        color: $silver;
+    }
+
+    &__textarea {
+        width: 100%;
+        height: 7rem;
+        resize: none;
+        padding-top: $mobile-padding-after;
+        padding-left: $mobile-padding-between;
+    }
+
+    &__button {
+        font-family: 'Avenir Next';
+        font-weight: 700;
+        width: 100%;
+        color: white;
+        height: 2.5rem;
+        background-color: $brainflix-blue;
+        background-image: url("../../assets/icons/add_comment.svg");
+        background-repeat: no-repeat;
+        background-position: .3125rem;
+        border-color: $brainflix-blue;
+        border-radius: .25rem;
+        border-style: solid;
+        margin-top: $mobile-padding-after;
+    }
+}
+
+.comment__button:hover {
+    background-color: $brainflix-darkblue;
+    border-color: $brainflix-darkblue;
+}
+

@@ -1,0 +1,28 @@
+
+@use './styles/partials/global.scss' as *;
+@use './styles/partials/variables' as *;
+@use './styles/partials/fonts' as *;
+@use './styles/partials/mixins' as *;
+
+
+.comments {
+    padding-left: 1rem;
+}
+
+.comments-gap {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.video-gap {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+
+.next-video {
+    color: #AFAFAF;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-top: .0625rem solid #E1E1E1;
+}
