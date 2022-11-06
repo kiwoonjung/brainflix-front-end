@@ -4,7 +4,6 @@ import Video from "../Video/Video";
 export default function VideoList(props) {
   return (
     <div className="video-list">
-      {/* For each game in our gameList, output a <Game /> tag */}
       {props.videoData.map((video) => (
         <Video
           handleVideoClick={props.handleVideoClick}

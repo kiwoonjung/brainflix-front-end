@@ -19,6 +19,11 @@
         padding-right: $tablet-padding-between;
         padding-left: $tablet-padding-between;
     }
+
+    @include desktop {
+        padding-right: 6rem;
+        padding-left: 6rem;
+    }
 }
 
 .logo {
@@ -54,6 +59,10 @@
 
         @include tablet {
             width: 72%;
+        }
+
+        @include desktop {
+            width: 33%;
         }
     }
 
@@ -115,6 +124,10 @@
         border-radius: .25rem;
         border-style: solid;
         margin-left: 1rem;
+    }
+
+    @include desktop {
+        width: 24%;
     }
 
 }

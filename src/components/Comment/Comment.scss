@@ -23,6 +23,10 @@
 
     &__user-container {
         padding-right: $mobile-padding-between;
+        
+        @include desktop {
+            padding-right: 2.5rem;
+        }
     }
 
     &__name-container {
@@ -34,6 +38,10 @@
 
     &__timestamp {
         color: $silver;
+
+        @include desktop {
+            padding-right: $tablet-padding-between;
+        }
     }
 
     &__comment {
@@ -42,6 +50,11 @@
 
         @include tablet {
             padding-bottom: $tablet-padding-after;
+        }
+
+        @include desktop {
+            padding-left: 4.7rem;
+            padding-right: $tablet-padding-between;
         }
     }
 }

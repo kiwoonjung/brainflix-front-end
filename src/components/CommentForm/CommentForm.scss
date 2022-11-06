@@ -19,6 +19,10 @@
         padding-left: $tablet-padding-between;
     }
 
+    @include desktop {
+        padding-left: 6rem;
+    }
+
     &__container {
         display: flex;
     }
@@ -28,6 +32,10 @@
 
         @include tablet {
             padding-top: 1.20rem;
+        }
+
+        @include desktop {
+            padding-right:2.5rem;
         }
     }
 

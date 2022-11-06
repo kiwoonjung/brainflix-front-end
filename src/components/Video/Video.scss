@@ -31,5 +31,9 @@
         @include tablet {
             width: 22%;
         }
+
+        @include desktop {
+            width: 100%;
+        }
     }
     }

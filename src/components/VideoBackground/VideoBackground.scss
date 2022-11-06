@@ -1,0 +1,18 @@
+@use '../../styles/partials/global.scss' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+
+
+.video-background {
+    &__background {
+        display: none;
+        @include desktop {
+            display: block;
+            background-color: black;
+            padding-left: 10rem;
+            padding-right: 10rem;
+            }
+
+    }
+}
