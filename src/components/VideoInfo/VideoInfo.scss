@@ -5,13 +5,6 @@
 
 
 .video-info {
-
-    &__mobile {
-        @include desktop {
-            display: none;
-        }
-    }
-
     &__background{
         @include tablet {
             background-color: black;

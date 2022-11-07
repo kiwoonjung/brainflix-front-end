@@ -6,7 +6,12 @@
 
 .video-background {
     &__background {
-        display: none;
+        @include tablet {
+            background-color: black;
+            padding-left: $tablet-padding-between;
+            padding-right: $tablet-padding-between;
+        }
+
         @include desktop {
             display: block;
             background-color: black;

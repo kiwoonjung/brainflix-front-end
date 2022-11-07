@@ -5,16 +5,6 @@ import likeIcon from "../../assets/icons/likes.svg";
 export default function VideoInfo(props) {
   return (
     <div>
-      <div className="video-info__mobile">
-        <div className="video-info">
-          <video
-            className="video-info__background"
-            controls
-            width="100%"
-            poster={props.video.image}
-          ></video>
-        </div>
-      </div>
       <div className="video-info__title-container">
         <div>
           <h1 className="video-info__title">{props.video.title}</h1>
