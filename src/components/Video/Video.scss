@@ -20,6 +20,10 @@
         height: 60px;
         margin-right: $mobile-padding-between;
         border-radius: .25rem;
+
+        @include desktop {
+            height: 68px;
+        }
     }
 
     &__text-container {
@@ -33,7 +37,7 @@
         }
 
         @include desktop {
-            width: 100%;
+            width: 40%;
         }
     }
     }
