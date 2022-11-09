@@ -5,7 +5,11 @@
 
 
 .video-background {
+    width: 100%;
+    background: black;
     &__background {
+        max-width: 1280px;
+        margin: 0 auto;
         @include tablet {
             background-color: black;
             padding-left: $tablet-padding-between;

@@ -1,0 +1,194 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.upload {
+    border-top :  .0625rem solid $mercury;
+    padding-right: $mobile-padding-between;
+    padding-left: $mobile-padding-between;
+
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+
+    @include tablet {
+        padding-right: $tablet-padding-between;
+        padding-left: $tablet-padding-between;
+    }
+
+    @include desktop {
+        padding-right: 6rem;
+        padding-left: 6rem;
+    }
+
+    &__header-text {
+        padding-top: $mobile-padding-before;
+        padding-bottom: $mobile-padding-before;
+
+        @include tablet {
+            padding-top: $tablet-padding-before;
+            padding-bottom: $mobile-padding-before;
+            border-bottom: .0625rem solid $mercury;;
+        }
+    }
+    
+    &__tablet-container {
+
+        @include desktop {
+            display: flex;
+            border-bottom:  .0625rem solid $mercury;
+        }
+    }
+
+    &__tablet-container-2 {
+
+        @include desktop {
+            width: 40%;
+        }
+    }
+
+    &__text-thumbnail {
+        color: $silver;
+
+        @include tablet {
+            padding-top: $tablet-padding-before;
+        }
+    }
+
+    &__thumbnail-container {
+        padding-top: 0.5rem;
+    }
+
+
+
+    &__thumbnail {
+        width: 100%;
+        border-radius: .3125rem;
+
+        @include tablet {
+            width: 50%;
+        }
+
+        @include desktop {
+            width: 100%;
+        }
+    }
+}
+
+.description {
+
+    @include desktop{
+        width: 100%;
+        padding-left: 2rem;
+    }
+
+    &__text {
+        color: $silver;
+        padding-top: $mobile-padding-after;
+    }
+}
+
+.form {
+    padding-bottom: $mobile-padding-before;
+
+    @include desktop {
+        padding-top: 1.2rem;
+    }
+
+    &__input {
+        font-family: 'Avenir Next';
+        font-weight: 400;
+        height: 2.25rem;
+        width: 100%;
+        background-color: $alabaster;
+        padding-left: 1rem;
+        border-radius: .3125rem;
+        border-color: $mercury;
+        border-style: solid;
+
+        @include tablet {
+            height: 2.5rem;
+        }
+
+        @include desktop {
+            margin-top : 0.5rem
+        }
+    }
+
+    &__textarea {
+        font-family: 'Avenir Next';
+        font-weight: 400;
+        height: 6rem;
+        width: 100%;
+        background-color: $alabaster;
+        padding-top: 0.5rem;
+        padding-left: 1rem;
+        border-radius: .3125rem;
+        border: 0.15rem solid $mercury;
+        resize: none;
+
+        @include desktop {
+            height: 5.6rem;
+        }
+    }
+}
+
+.button-container {
+
+    @include tablet {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+}
+
+.publish-button {
+    width: 100%;
+    color: white;
+    height: 2.5rem;
+
+    background-color: $brainflix-blue;
+    background-image: url("../../assets/icons/publish.svg");
+    background-repeat: no-repeat;
+    background-position: .3125rem;
+    border-color: $brainflix-blue;
+    border-radius: .25rem;
+    border-style: solid;
+
+    @include tablet {
+        margin-top: $mobile-padding-before;
+        width: 25%;
+        order: 2;
+    }
+
+    @include desktop {
+        width: 12.5%;
+    }
+}
+
+.publish-button:hover {
+    background-color: $brainflix-darkblue;
+    border-color: $brainflix-darkblue;
+}
+
+.cancel-button{
+    width: 100%;
+    color: $brainflix-blue;
+    height: 2.5rem;
+    margin-top: $mobile-padding-after;
+    margin-bottom: 3rem;
+    background-color: white;
+    border: hidden;
+    border-radius: .25rem;
+
+    @include tablet {
+        margin-top: $mobile-padding-before;
+        width: 25%;
+    }
+
+    @include desktop {
+        width: 12.5%;
+    }
+}
+
+

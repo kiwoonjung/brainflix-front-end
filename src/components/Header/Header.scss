@@ -12,10 +12,15 @@
     padding-right: $mobile-padding-between;
     padding-bottom: $mobile-padding-between;
     padding-left: $mobile-padding-between;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
 
     @include tablet {
         display: flex;
-        align-items: center;
+        align-items: center;    
+        padding-top:0;
+        padding-bottom: 0;
         padding-right: $tablet-padding-between;
         padding-left: $tablet-padding-between;
     }
@@ -59,6 +64,7 @@
 
         @include tablet {
             width: 72%;
+            height: 2.5rem;
         }
 
         @include desktop {
@@ -73,6 +79,10 @@
 
     &__user-container {
         padding-left: $mobile-padding-between;
+
+        @include desktop {
+            padding-left: 2rem;
+        }
     }
 
     &__user {
@@ -81,6 +91,11 @@
         width: 2.25rem;
         height: 2.25rem;
         border-radius: 50%;
+
+        @include tablet {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
     }
 
     &__bar-container{
@@ -89,11 +104,9 @@
 }
 
 .upload-button {
-    font-family: 'Avenir Next';
-    font-weight: 700;
     width: 100%;
     color: white;
-    height: 2.25rem;
+    height: 2.5rem;
     background-color: $brainflix-blue;
     background-image: url("../../assets/icons/upload.svg");
     background-repeat: no-repeat;
@@ -111,11 +124,9 @@
     display: none;
     @include tablet {
         display: block;
-        font-family: 'Avenir Next';
-        font-weight: 700;
         width: 47%;
         color: white;
-        height: 2.25rem;
+        height: 2.5rem;
         background-color: $brainflix-blue;
         background-image: url("../../assets/icons/upload.svg");
         background-repeat: no-repeat;
@@ -127,12 +138,17 @@
     }
 
     @include desktop {
-        width: 24%;
+        width: 20%;
     }
 
 }
 
 .upload-button:hover {
+    background-color: $brainflix-darkblue;
+    border-color: $brainflix-darkblue;
+}
+
+.upload-button-tablet:hover {
     background-color: $brainflix-darkblue;
     border-color: $brainflix-darkblue;
 }

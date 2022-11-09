@@ -1,7 +1,7 @@
 import logo from "../../assets/Logo/BrainFlix-logo.svg";
 import "./Header.scss";
 
-function HeaderComponent() {
+export default function Header() {
   return (
     <div className="header">
       <div className="logo">
@@ -12,16 +12,19 @@ function HeaderComponent() {
         <form className="search__bar-container">
           <input className="search__bar" type="text" placeholder="Search" />
         </form>
-        <button className="upload-button-tablet">UPLOAD</button>
+        <button className="upload-button-tablet">
+          <h5>UPLOAD</h5>
+        </button>
         <div className="search__user-container">
           <div className="search__user"></div>
         </div>
       </div>
 
       <div>
-        <button className="upload-button">UPLOAD</button>
+        <button className="upload-button">
+          <h5>UPLOAD</h5>
+        </button>
       </div>
     </div>
   );
 }
-export default HeaderComponent;
