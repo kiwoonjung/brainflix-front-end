@@ -11,6 +11,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/video/:id" element={<Home />} />
           <Route path="/upload" element={<Upload />} />
         </Routes>
       </div>

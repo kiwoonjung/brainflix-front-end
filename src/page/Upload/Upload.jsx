@@ -1,5 +1,6 @@
 import "./Upload.scss";
-import videoThumbnail from "../../assets/images/Upload-video-preview.jpg";
+import videoThumbnail from "../../assets/Images/Upload-video-preview.jpg";
+import { Link } from "react-router-dom";
 
 export default function Upload() {
   return (
@@ -44,9 +45,11 @@ export default function Upload() {
       </div>
 
       <div className="button-container">
-        <button className="publish-button">
-          <h5>PUBLISH</h5>
-        </button>
+        <Link to="/" className="link-container">
+          <button className="publish-button">
+            <h5>PUBLISH</h5>
+          </button>
+        </Link>
 
         <button className="cancel-button">
           <h5>CANCEL</h5>

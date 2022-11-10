@@ -53,7 +53,7 @@
         font-weight: 400;
         height: 2.25rem;
         width: 100%;
-        background-image: url("../../assets/icons/search.svg");
+        background-image: url("../../assets/Icons/search.svg");
         background-repeat: no-repeat;
         background-position: .625rem;
         background-color: $alabaster;
@@ -68,7 +68,7 @@
         }
 
         @include desktop {
-            width: 33%;
+            width: 40%;
         }
     }
 
@@ -80,13 +80,13 @@
     &__user-container {
         padding-left: $mobile-padding-between;
 
-        @include desktop {
+        @include tablet {
             padding-left: 2rem;
         }
     }
 
     &__user {
-        background-image: url("../../assets/images/Mohan-muruge.jpg");
+        background-image: url("../../assets/Images/Mohan-muruge.jpg");
         background-size: cover;
         width: 2.25rem;
         height: 2.25rem;
@@ -108,7 +108,7 @@
     color: white;
     height: 2.5rem;
     background-color: $brainflix-blue;
-    background-image: url("../../assets/icons/upload.svg");
+    background-image: url("../../assets/Icons/upload.svg");
     background-repeat: no-repeat;
     background-position: .3125rem;
     border-color: $brainflix-blue;
@@ -120,15 +120,19 @@
     }
 }
 
+.link {
+    text-decoration: none;
+}
+
 .upload-button-tablet {
     display: none;
     @include tablet {
         display: block;
-        width: 47%;
+        width: 100%;
         color: white;
         height: 2.5rem;
         background-color: $brainflix-blue;
-        background-image: url("../../assets/icons/upload.svg");
+        background-image: url("../../assets/Icons/upload.svg");
         background-repeat: no-repeat;
         background-position: .3125rem;
         border-color: $brainflix-blue;
@@ -136,11 +140,16 @@
         border-style: solid;
         margin-left: 1rem;
     }
+}
+
+.link {
+    @include tablet {
+        width: 47%;
+    }
 
     @include desktop {
         width: 20%;
     }
-
 }
 
 .upload-button:hover {

@@ -6,7 +6,7 @@ export default function VideoList(props) {
     <div className="video-list">
       {props.videoData.map((video) => (
         <Video
-          handleVideoClick={props.handleVideoClick}
+          id={video.id}
           key={video.id}
           image={video.image}
           title={video.title}

@@ -1,6 +1,6 @@
 import "./VideoInfo.scss";
-import viewIcon from "../../assets/icons/views.svg";
-import likeIcon from "../../assets/icons/likes.svg";
+import viewIcon from "../../assets/Icons/views.svg";
+import likeIcon from "../../assets/Icons/likes.svg";
 
 export default function VideoInfo(props) {
   return (

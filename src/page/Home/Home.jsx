@@ -1,21 +1,47 @@
 import videoData from "../../data/video-details.json";
-import React, { useState } from "react";
 import VideoBackground from "../../components/VideoBackground/VideoBackground";
 import VideoList from "../../components/VideoList/VideoList";
 import VideoInfo from "../../components/VideoInfo/VideoInfo";
 import Comment from "../../components/Comment/Comment";
 import CommentForm from "../../components/CommentForm/CommentForm";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 export default function Home() {
-  const [currentVideo, setCurrentVideo] = useState(videoData[0]); //currentvideo = videoData[0]
-  const handleClick = (title) => {
-    // console.log(title);
-    const foundVideo = videoData.find((video) => video.title === title);
-    // console.log(foundVideo);
-    setCurrentVideo(foundVideo);
-  };
+  const { id } = useParams();
+  const [currentVideo, setCurrentVideo] = useState(videoData[0]);
+  const [allVideos, setAllVideos] = useState([]);
+  const APIURL = "https://project-2-api.herokuapp.com/videos";
+  const APIKEY = "api_key=9ec32c09-a24d-4b14-8d16-0962675d4b78";
 
-  //dateFormat(162468124) =
+  /*
+   * Component mounts, fetch all videos and set state
+   */
+  useEffect(() => {
+    axios
+      .get(`${APIURL}/?${APIKEY}`)
+      .then((response) => {
+        setAllVideos(response.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  /*
+   * when the id changes, fetch a single video using the id
+   */
+  useEffect(() => {
+    if (id) {
+      axios
+        .get(`${APIURL}/${id}?${APIKEY}/`)
+        .then((response) => {
+          setCurrentVideo(response.data);
+          console.log(response.data);
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [id]);
+
   const dateFormat = (time) => {
     const foundDate = new Date(time).toLocaleDateString();
 
@@ -28,10 +54,12 @@ export default function Home() {
 
       <div className="wrapper">
         <div className="left-container">
-          <VideoInfo video={currentVideo} getTimeStamp={dateFormat} />
-          <h5 className="comments">{currentVideo.comments.length} Comments</h5>
+          {currentVideo && (
+            <VideoInfo video={currentVideo} getTimeStamp={dateFormat} />
+          )}
+          <h5 className="comments">{currentVideo.comments?.length} Comments</h5>
           <CommentForm />
-          {currentVideo.comments.map((data, id) => (
+          {currentVideo.comments?.map((data, id) => (
             <div key={data.id} className="comments-gap">
               <Comment
                 getTimeStamp={dateFormat}
@@ -48,12 +76,13 @@ export default function Home() {
           <div className="video-gap">
             <h5 className="next-video">NEXT VIDEO</h5>
           </div>
-          <VideoList
-            videoData={videoData.filter(
-              (video) => video.title !== currentVideo.title
-            )}
-            handleVideoClick={handleClick}
-          />
+          {allVideos && currentVideo && (
+            <VideoList
+              videoData={allVideos?.filter(
+                (video) => video.title !== currentVideo.title
+              )}
+            />
+          )}
         </div>
       </div>
     </div>

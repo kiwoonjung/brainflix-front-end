@@ -1,6 +1,6 @@
 import "./Comment.scss";
 
-export default function CommentComponent(props) {
+export default function Comment(props) {
   return (
     <div>
       <div className="post">
