@@ -1,4 +1,3 @@
-import videoData from "../../data/video-details.json";
 import VideoBackground from "../../components/VideoBackground/VideoBackground";
 import VideoList from "../../components/VideoList/VideoList";
 import VideoInfo from "../../components/VideoInfo/VideoInfo";
@@ -10,7 +9,7 @@ import axios from "axios";
 
 export default function Home() {
   const { id } = useParams();
-  const [currentVideo, setCurrentVideo] = useState(videoData[0]);
+  const [currentVideo, setCurrentVideo] = useState([]);
   const [allVideos, setAllVideos] = useState([]);
   const APIURL = "https://project-2-api.herokuapp.com/videos";
   const APIKEY = "api_key=9ec32c09-a24d-4b14-8d16-0962675d4b78";
@@ -31,16 +30,17 @@ export default function Home() {
    * when the id changes, fetch a single video using the id
    */
   useEffect(() => {
-    if (id) {
+    let videoId = id || allVideos[0]?.id;
+    if (videoId) {
       axios
-        .get(`${APIURL}/${id}?${APIKEY}/`)
+        .get(`${APIURL}/${videoId}?${APIKEY}/`)
         .then((response) => {
           setCurrentVideo(response.data);
           console.log(response.data);
         })
         .catch((error) => console.log(error));
     }
-  }, [id]);
+  }, [id, allVideos]);
 
   const dateFormat = (time) => {
     const foundDate = new Date(time).toLocaleDateString();

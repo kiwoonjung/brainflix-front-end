@@ -1,7 +1,7 @@
 import "./App.scss";
-import Home from "./page/Home/Home";
+import PageHome from "./page/Home/PageHome";
 import Header from "./components/Header/Header";
-import Upload from "./page/Upload/Upload";
+import PageUpload from "./page/Upload/PageUpload";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -10,9 +10,9 @@ function App() {
       <div>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/video/:id" element={<Home />} />
-          <Route path="/upload" element={<Upload />} />
+          <Route path="/" element={<PageHome />} />
+          <Route path="/video/:id" element={<PageHome />} />
+          <Route path="/upload" element={<PageUpload />} />
         </Routes>
       </div>
     </BrowserRouter>

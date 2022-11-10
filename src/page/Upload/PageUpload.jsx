@@ -1,4 +1,4 @@
-import "./Upload.scss";
+import "./PageUpload.scss";
 import videoThumbnail from "../../assets/Images/Upload-video-preview.jpg";
 import { Link } from "react-router-dom";
 
