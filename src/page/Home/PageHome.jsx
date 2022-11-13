@@ -14,6 +14,19 @@ export default function Home() {
   const APIURL = "https://project-2-api.herokuapp.com/videos";
   const APIKEY = "api_key=9ec32c09-a24d-4b14-8d16-0962675d4b78";
 
+  function getComment() {
+    let videoId = id || allVideos[0]?.id;
+    if (videoId) {
+      axios
+        .get(`${APIURL}/${videoId}?${APIKEY}/`)
+        .then((response) => {
+          setCurrentVideo(response.data);
+          console.log(response.data);
+        })
+        .catch((error) => console.log(error));
+    }
+  }
+
   /*
    * Component mounts, fetch all videos and set state
    */
@@ -42,6 +55,40 @@ export default function Home() {
     }
   }, [id, allVideos]);
 
+  // useEffect(() => {
+  //   let videoId = id || allVideos[0]?.id;
+  //   if (videoId) {
+
+  function postComment(event) {
+    event.preventDefault();
+    console.log("commentPost");
+    console.log(event.target.content.value);
+    console.log(currentVideo.id);
+
+    axios
+      .post(`${APIURL}/${currentVideo.id}/comments?${APIKEY}`, {
+        name: "Kiwoon",
+        comment: event.target.content.value,
+      })
+      .then((response) => {
+        getComment(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => console.log(error));
+
+    if (event.target.content.value === "") {
+      alert("please enter a content for the comment post");
+      return;
+    } else if (event.target.content.value !== "") {
+      alert("Thank you for comment!");
+      event.target.reset();
+      return;
+    }
+  }
+
+  // }
+  // }, [id, allVideos]);
+
   const dateFormat = (time) => {
     const foundDate = new Date(time).toLocaleDateString();
 
@@ -58,7 +105,7 @@ export default function Home() {
             <VideoInfo video={currentVideo} getTimeStamp={dateFormat} />
           )}
           <h5 className="comments">{currentVideo.comments?.length} Comments</h5>
-          <CommentForm />
+          <CommentForm postComment={postComment} />
           {currentVideo.comments?.map((data, id) => (
             <div key={data.id} className="comments-gap">
               <Comment
