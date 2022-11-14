@@ -55,20 +55,16 @@ export default function Upload() {
                 placeholder="Add a description to your video"
               ></textarea>
             </label>
+            <div className="button-container">
+              <div className="link-container">
+                <button className="publish-button">PUBLISH</button>
+              </div>
+              <button className="cancel-button">
+                <h5>CANCEL</h5>
+              </button>
+            </div>
           </form>
         </div>
-      </div>
-
-      <div className="button-container">
-        <div className="link-container">
-          <button className="publish-button">
-            <h5>PUBLISH</h5>
-          </button>
-        </div>
-
-        <button className="cancel-button">
-          <h5>CANCEL</h5>
-        </button>
       </div>
     </div>
   );
