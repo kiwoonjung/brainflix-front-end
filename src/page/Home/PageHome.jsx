@@ -99,6 +99,7 @@ export default function Home() {
       )
       .then((response) => {
         getComment();
+        console.log(response.data);
       })
       .catch((error) => console.log(error));
   }
@@ -108,6 +109,8 @@ export default function Home() {
 
     return foundDate;
   };
+
+  // commentArr = {currentVideo.comments.sort((a, b) => (b.timestamp - a.timestamp))};
 
   return (
     <div>
