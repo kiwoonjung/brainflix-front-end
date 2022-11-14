@@ -123,19 +123,21 @@ export default function Home() {
           )}
           <h5 className="comments">{currentVideo.comments?.length} Comments</h5>
           <CommentForm postComment={postComment} />
-          {currentVideo.comments?.map((data, id) => (
-            <div key={data.id} className="comments-gap">
-              <Comment
-                getTimeStamp={dateFormat}
-                id={id}
-                key={id}
-                name={data.name}
-                timestamp={data.timestamp}
-                post={data.comment}
-                deleteComment={deleteComent}
-              />
-            </div>
-          ))}
+          {currentVideo.comments
+            ?.sort((a, b) => b.timestamp - a.timestamp)
+            .map((data, id) => (
+              <div key={data.id} className="comments-gap">
+                <Comment
+                  getTimeStamp={dateFormat}
+                  id={id}
+                  key={id}
+                  name={data.name}
+                  timestamp={data.timestamp}
+                  post={data.comment}
+                  deleteComment={deleteComent}
+                />
+              </div>
+            ))}
         </div>
         <div className="nextVideo-container">
           <div className="video-gap">
