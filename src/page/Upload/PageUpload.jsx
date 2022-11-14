@@ -57,9 +57,11 @@ export default function Upload() {
             </label>
             <div className="button-container">
               <div className="link-container">
-                <button className="publish-button">PUBLISH</button>
+                <button type="submit" className="publish-button">
+                  PUBLISH
+                </button>
               </div>
-              <button className="cancel-button">
+              <button type="button" className="cancel-button">
                 <h5>CANCEL</h5>
               </button>
             </div>
