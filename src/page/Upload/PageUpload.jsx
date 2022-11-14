@@ -7,8 +7,8 @@ export default function Upload() {
     event.preventDefault();
     const title = event.target.title.value;
     const content = event.target.content.value;
-    if (title && content === "") {
-      alert("please enter a content for the comment post");
+    if (title === "" && content === "") {
+      alert("please enter a content for the video post");
       return;
     } else if (title && content !== "") {
       alert("Thank you for uploading!");

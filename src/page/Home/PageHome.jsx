@@ -18,7 +18,7 @@ export default function Home() {
     let videoId = id || allVideos[0]?.id;
     if (videoId) {
       axios
-        .get(`${APIURL}/${videoId}?${APIKEY}/`)
+        .get(`${APIURL}/${videoId}?${APIKEY}`)
         .then((response) => {
           setCurrentVideo(response.data);
           console.log(response.data);
@@ -71,7 +71,8 @@ export default function Home() {
         comment: event.target.content.value,
       })
       .then((response) => {
-        getComment(response.data);
+        getComment();
+        event.target.reset();
         console.log(response.data);
       })
       .catch((error) => console.log(error));
@@ -81,13 +82,26 @@ export default function Home() {
       return;
     } else if (event.target.content.value !== "") {
       alert("Thank you for comment!");
-      event.target.reset();
       return;
     }
   }
 
   // }
   // }, [id, allVideos]);
+
+  function deleteComent(event) {
+    event.preventDefault();
+    axios
+      .delete(
+        `${APIURL}/${currentVideo.id}/comments/${
+          currentVideo.comments[event.target.value].id
+        }?${APIKEY}`
+      )
+      .then((response) => {
+        getComment();
+      })
+      .catch((error) => console.log(error));
+  }
 
   const dateFormat = (time) => {
     const foundDate = new Date(time).toLocaleDateString();
@@ -115,6 +129,7 @@ export default function Home() {
                 name={data.name}
                 timestamp={data.timestamp}
                 post={data.comment}
+                deleteComment={deleteComent}
               />
             </div>
           ))}

@@ -2,7 +2,7 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
-.post{
+.post {
     width: 100%;
     display: flex;
     padding-top: $mobile-padding-after;
@@ -57,4 +57,39 @@
             padding-right: $tablet-padding-between;
         }
     }
+}
+
+.delete-container {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 1rem;
+    margin-top: -1.5rem;
+}
+
+.delete-btn {
+    font-family: 'Avenir Next';
+    font-weight: 700;
+    width: 25%;
+    color: white;
+    height: 1.25rem;
+    background-color: $brainflix-blue;
+    background-repeat: no-repeat;
+    background-position: .3125rem;
+    border-color: $brainflix-blue;
+    border-radius: .25rem;
+    border-style: solid;
+    margin-top: $mobile-padding-after;
+
+    @include tablet {
+        width: 10%;
+    }
+
+    @include desktop {
+        margin-right: 1.5rem;
+    }
+}
+
+.delete-btn:hover {
+    background-color: $brainflix-darkblue;
+    border-color: $brainflix-darkblue;
 }

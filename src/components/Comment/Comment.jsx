@@ -17,6 +17,15 @@ export default function Comment(props) {
       <div className="post__comment">
         <h4>{props.post}</h4>
       </div>
+      <div className="delete-container">
+        <button
+          className="delete-btn"
+          value={props.id}
+          onClick={props.deleteComment}
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 }
