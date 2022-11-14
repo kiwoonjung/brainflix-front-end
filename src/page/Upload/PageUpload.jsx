@@ -1,8 +1,9 @@
 import "./PageUpload.scss";
 import videoThumbnail from "../../assets/Images/Upload-video-preview.jpg";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Upload() {
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const title = event.target.title.value;
@@ -13,6 +14,7 @@ export default function Upload() {
     } else if (title && content !== "") {
       alert("Thank you for uploading!");
       event.target.reset();
+      navigate("/");
       return;
     }
   };
@@ -58,11 +60,11 @@ export default function Upload() {
       </div>
 
       <div className="button-container">
-        <Link to="/" className="link-container">
+        <div className="link-container">
           <button className="publish-button">
             <h5>PUBLISH</h5>
           </button>
-        </Link>
+        </div>
 
         <button className="cancel-button">
           <h5>CANCEL</h5>
