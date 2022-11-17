@@ -11,14 +11,16 @@ export default function Home() {
   const { id } = useParams();
   const [currentVideo, setCurrentVideo] = useState([]);
   const [allVideos, setAllVideos] = useState([]);
-  const APIURL = "https://project-2-api.herokuapp.com/videos";
-  const APIKEY = "api_key=9ec32c09-a24d-4b14-8d16-0962675d4b78";
+  const APIURL = process.env.REACT_APP_SERVER_URL || "";
+  console.log(APIURL);
+  // const APIKEY = "api_key=9ec32c09-a24d-4b14-8d16-0962675d4b78";
 
   function getComment() {
     let videoId = id || allVideos[0]?.id;
+    console.log(videoId);
     if (videoId) {
       axios
-        .get(`${APIURL}/${videoId}?${APIKEY}`)
+        .get(`${APIURL}/videos/${videoId}`)
         .then((response) => {
           setCurrentVideo(response.data);
           console.log(response.data);
@@ -32,26 +34,28 @@ export default function Home() {
    */
   useEffect(() => {
     axios
-      .get(`${APIURL}/?${APIKEY}`)
+      .get(`${APIURL}/videos`)
       .then((response) => {
         setAllVideos(response.data);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [APIURL]);
 
   /*
    * when the id changes, fetch a single video using the id
    */
   useEffect(() => {
     let videoId = id || allVideos[0]?.id;
+    console.log("videoId", videoId);
+    console.log("all vids", allVideos[0]);
     if (videoId) {
       axios
-        .get(`${APIURL}/${videoId}?${APIKEY}/`)
+        .get(`${APIURL}/videos/${videoId}`)
         .then((response) => {
           setCurrentVideo(response.data);
-          console.log(response.data);
+          console.log("response", response.data);
         })
-        .catch((error) => console.log(error));
+        .catch((error) => console.error(error));
     }
   }, [id, allVideos]);
 
@@ -66,7 +70,7 @@ export default function Home() {
     console.log(currentVideo.id);
 
     axios
-      .post(`${APIURL}/${currentVideo.id}/comments?${APIKEY}`, {
+      .post(`${APIURL}/${currentVideo.id}/comments`, {
         name: "Kiwoon",
         comment: event.target.content.value,
       })
@@ -95,7 +99,7 @@ export default function Home() {
       .delete(
         `${APIURL}/${currentVideo.id}/comments/${
           currentVideo.comments[event.target.value].id
-        }?${APIKEY}`
+        }`
       )
       .then((response) => {
         getComment();
