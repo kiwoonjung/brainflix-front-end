@@ -1,21 +1,35 @@
 import "./PageUpload.scss";
 import videoThumbnail from "../../assets/Images/Upload-video-preview.jpg";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
+const APIURL = process.env.REACT_APP_SERVER_URL || "";
+console.log(APIURL);
 export default function Upload() {
   const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
-    const title = event.target.title.value;
-    const content = event.target.content.value;
-    if (title === "" && content === "") {
+    const newUpload = {
+      title: event.target.title.value,
+      description: event.target.content.value,
+    };
+
+    console.log(newUpload);
+
+    if (event.target.title.value === "" || event.target.content.value === "") {
       alert("please enter a content for the video post");
       return;
-    } else if (title && content !== "") {
+    } else {
       alert("Thank you for uploading!");
-      event.target.reset();
-      navigate("/");
-      return;
+      axios
+        .post(`${APIURL}/videos`, newUpload)
+        .then((response) => {
+          console.log(response.data);
+          navigate("/");
+        })
+        .catch((error) => console.log(error));
+      // event.target.reset();
+
+      // return;
     }
   };
 
@@ -35,7 +49,12 @@ export default function Upload() {
         </div>
 
         <div className="description">
-          <form onSubmit={handleSubmit} className="form">
+          <form
+            onSubmit={(event) => {
+              handleSubmit(event);
+            }}
+            className="form"
+          >
             <label className="form__label" htmlFor="descriptionTitle">
               <h5 className="description__text">TITLE YOUR VIDEO</h5>
               <input

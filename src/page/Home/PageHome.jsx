@@ -57,7 +57,7 @@ export default function Home() {
         })
         .catch((error) => console.error(error));
     }
-  }, [id, allVideos]);
+  }, [id, allVideos, APIURL]);
 
   // useEffect(() => {
   //   let videoId = id || allVideos[0]?.id;
@@ -76,7 +76,6 @@ export default function Home() {
       })
       .then((response) => {
         getComment();
-        event.target.reset();
         console.log(response.data);
       })
       .catch((error) => console.log(error));
@@ -86,12 +85,10 @@ export default function Home() {
       return;
     } else if (event.target.content.value !== "") {
       alert("Thank you for comment!");
+      event.target.reset();
       return;
     }
   }
-
-  // }
-  // }, [id, allVideos]);
 
   function deleteComent(event) {
     event.preventDefault();
@@ -113,8 +110,6 @@ export default function Home() {
 
     return foundDate;
   };
-
-  // commentArr = {currentVideo.comments.sort((a, b) => (b.timestamp - a.timestamp))};
 
   return (
     <div>
