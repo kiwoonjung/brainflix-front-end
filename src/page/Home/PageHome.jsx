@@ -13,7 +13,6 @@ export default function Home() {
   const [allVideos, setAllVideos] = useState([]);
   const APIURL = process.env.REACT_APP_SERVER_URL || "";
   console.log(APIURL);
-  // const APIKEY = "api_key=9ec32c09-a24d-4b14-8d16-0962675d4b78";
 
   function getComment() {
     let videoId = id || allVideos[0]?.id;
@@ -59,10 +58,6 @@ export default function Home() {
     }
   }, [id, allVideos, APIURL]);
 
-  // useEffect(() => {
-  //   let videoId = id || allVideos[0]?.id;
-  //   if (videoId) {
-
   function postComment(event) {
     event.preventDefault();
     console.log("commentPost");
@@ -70,7 +65,7 @@ export default function Home() {
     console.log(currentVideo.id);
 
     axios
-      .post(`${APIURL}/${currentVideo.id}/comments`, {
+      .post(`${APIURL}/videos/${currentVideo.id}/comments`, {
         name: "Kiwoon",
         comment: event.target.content.value,
       })

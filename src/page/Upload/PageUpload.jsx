@@ -27,9 +27,6 @@ export default function Upload() {
           navigate("/");
         })
         .catch((error) => console.log(error));
-      // event.target.reset();
-
-      // return;
     }
   };
 
