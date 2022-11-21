@@ -29,14 +29,16 @@ export default function VideoInfo(props) {
             </h4>
 
             <div>
-              <h4 className="video-info__like">
-                <img
-                  className="video-info__icon"
-                  src={likeIcon}
-                  alt={props.video.title}
-                />
-                {props.video.likes}
-              </h4>
+              <button onClick={props.likesButton}>
+                <h4 className="video-info__like">
+                  <img
+                    className="video-info__icon"
+                    src={likeIcon}
+                    alt={props.video.title}
+                  />
+                  {props.video.likes}
+                </h4>
+              </button>
             </div>
           </div>
         </div>

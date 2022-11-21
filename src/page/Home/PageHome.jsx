@@ -89,10 +89,20 @@ export default function Home() {
     event.preventDefault();
     axios
       .delete(
-        `${APIURL}/${currentVideo.id}/comments/${
+        `${APIURL}/videos/${currentVideo.id}/comments/${
           currentVideo.comments[event.target.value].id
         }`
       )
+      .then((response) => {
+        getComment();
+        console.log(response.data);
+      })
+      .catch((error) => console.log(error));
+  }
+
+  function likesButton() {
+    axios
+      .put(`${APIURL}/videos/${currentVideo.id}/likes/`)
       .then((response) => {
         getComment();
         console.log(response.data);
@@ -113,7 +123,11 @@ export default function Home() {
       <div className="wrapper">
         <div className="left-container">
           {currentVideo && (
-            <VideoInfo video={currentVideo} getTimeStamp={dateFormat} />
+            <VideoInfo
+              video={currentVideo}
+              getTimeStamp={dateFormat}
+              likesButton={likesButton}
+            />
           )}
           <h5 className="comments">{currentVideo.comments?.length} Comments</h5>
           <CommentForm postComment={postComment} />
